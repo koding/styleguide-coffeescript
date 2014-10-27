@@ -11,7 +11,7 @@ Koding CoffeeScript Style Guideline
 
 - Avoid use of commas on multiline object and array definitions.
 
-```coffeescript
+```coffee
 # No
 arr = [
   'foo',
@@ -40,7 +40,7 @@ obj =
 
 - Use 1 blank line between class decleration and the first method (generally constructor)
 
-```coffeescript
+```coffee
 # No
 class Foo extends Bar
   constructor: (options = {}, data) -> # no space at all
@@ -59,7 +59,7 @@ class Foo extends Bar
 
 - Use exactly 2 blank lines between method/function definitions
 
-```coffeescript
+```coffee
 # No
 class Foo extends Bar
 
@@ -98,7 +98,7 @@ doSomething = ->
 
 - Use 1 blank line after definition of the method/function
 
-```coffeescript
+```coffee
 # No
 doSomething = ->
   bar()
@@ -115,10 +115,10 @@ doSomething = ->
 ### Formatting
 
 - Use at least one space before an assignment operator.
-- Use at **only** one space after an assignment operator.
+- Use **only** one space after an assignment operator.
 - Use reasonable aligning for expression symbols _(e.g `=`, `:`)_. Do not try to align everything, as it's making it hard to move the lines. Try to use plugins for this: Tabularize for Vim, Alignment for Sublime Text
 
-```coffeescript
+```coffee
 # No
 x= 1
 y =2
@@ -146,22 +146,22 @@ obj =
   short: 2
   longVariable: 3
 
-obj           =
-  var         : 1
-  short       : 2
-  longVariabl : 3
+obj            =
+  var          : 1
+  short        : 2
+  longVariable : 3
 
 
 # Yes
 obj =
-  var         : 1
-  short       : 2
-  longVariabl : 3
+  var          : 1
+  short        : 2
+  longVariable : 3
 ```
 
 - Follow idiomatic CoffeeScript practises for expressions, assignments, booleans etc.
 
-```coffeescript
+```coffee
 # No
 obj  = obj || {}
 bool = condition && otherCondition
@@ -189,7 +189,7 @@ We are using `CommonJS` module imports with `Browserify`.
 
 - Each require statement needs to be on its own line
 
-```coffeescript
+```coffee
 _      = require 'underscore'
 KDView = require 'kdf/view'
 ```
@@ -205,7 +205,7 @@ Require statements should follow the following order:
 
 - Omit curly brackets for multiline object definition
 
-```coffeescript
+```coffee
 # No
 obj = {
   foo : bar
@@ -220,7 +220,7 @@ obj =
 
 - Use curly brackets for single line object definition
 
-```coffeescript
+```coffee
 # No
 obj = foo: bar, baz: qux
 
@@ -230,7 +230,7 @@ obj = { foo: bar, baz: qux }
 
 - Omit paranthesis from the last function call of chain
 
-```coffeescript
+```coffee
 # No
 foo('bar')
 foo().bar('baz', 'qux')
@@ -242,7 +242,7 @@ foo().bar 'baz', 'qux'
 
 - Group only the first method in chains with `Lisp-y` way.
 
-```coffeescript
+```coffee
 # No
 foo('bar').baz()
 foo(bar('baz')).qux()
@@ -259,7 +259,7 @@ foo('bar').baz('qux').etc()
 
 - Multiline chains
 
-```coffeescript
+```coffee
 # No
 foo('bar').baz()
   .qux()
@@ -275,7 +275,7 @@ foo 'bar'
 
 - Use string interpolations instead of string concatenation.
 
-```coffeescript
+```coffee
 # No
 str = 'This string has ' + variables + 'inside.'
 str += ' And this is cool.'
@@ -287,7 +287,7 @@ str = "#{str} And this is cool."
 
 - Use single quotes if there is no string interpolation.
 
-```coffeescript
+```coffee
 # No
 str = "This is a string."
 
@@ -300,7 +300,7 @@ str = 'This is a string.'
 
 - Use existential operator `arg?` in places where you really want to check if a value exists on that variable, and you are not sure about the type. Otherwise do not use existential operator, do the check against variable itself.
 
-```coffeescript
+```coffee
 
 doSomething = (obj) ->
 
@@ -321,7 +321,7 @@ doSomething = (obj) ->
 
 - Never use single line `if/then/else` statements. Instead use 3 line version of it.
 
-```coffeescript
+```coffee
 # No
 if condition then foo() else bar()
 
@@ -333,7 +333,7 @@ else bar()
 
 - Always use `if/else` over `unless/else`. Never use `unless/else`
 
-```coffeescript
+```coffee
 # No
 unless no
   # do something
@@ -349,7 +349,7 @@ else
 
 - Use 2 spaces before post conditionals
 
-```coffeescript
+```coffee
 # No
 foo = 'bar' if condition # only one space
 
@@ -367,7 +367,7 @@ doSomething = ->
 
 - Use `switch` over `if/else if` for 1 line multi conditions. Align `then` statements if single line.
 
-```coffeescript
+```coffee
 # No
 if condition then doSomething()
 else if anotherCondition then doSomethingElse()
@@ -398,7 +398,7 @@ switch condition
 
 - Don't use parens functions that has empty arguments list
 
-```coffeescript
+```coffee
 # No
 doSomething = () ->
 
@@ -408,7 +408,7 @@ doSomething = ->
 
 - Use 1 space between closing parenthesis of arguments list and function arrow.
 
-```coffeescript
+```coffee
 # No
 doSomething = (foo, bar, rest...)->
 
@@ -418,7 +418,7 @@ doSomething = (foo, bar, rest...) ->
 
 - Use 1 space after comma between arguments.
 
-```coffeescript
+```coffee
 # No
 doSomething = (foo,bar,rest...)->
 
@@ -428,7 +428,7 @@ doSomething = (foo, bar, rest...) ->
 
 - Omit curly brackets if argument is a multiline object
 
-```coffeescript
+```coffee
 KDView = require 'kdf/view'
 
 # No
@@ -445,7 +445,7 @@ new KDView
 
 - Use early returns over big `if/else` blocks, to avoid nesting.
 
-```coffeescript
+```coffee
 # No
 doSomething = (state) ->
 
@@ -464,7 +464,7 @@ doSomething = (state) ->
 
 - Omit `return` keyword __only__ for 1 line functions. Use `return` every where else.
 
-```coffeescript
+```coffee
 # No
 doSomething = ->
 
@@ -493,7 +493,7 @@ class Foo
 
 - Write method definition and method body on the same line if method body contains only one line. Only exception is when it is against `80 characters per line rule`.
 
-```coffeescript
+```coffee
 # No
 isGreater = (foo, bar) ->
 
@@ -511,7 +511,7 @@ someKindOfMethodWithLongName = (foo, bar) ->
 
 - Do not use `arguments`, use splat (`args...`) operator instead.
 
-```coffeescript
+```coffee
 # No
 class Foo
 
@@ -530,7 +530,7 @@ class Foo
 
 - Do not destruct properties on arguments list. Instead destruct necessary arguments inside function body.
 
-```coffeescript
+```coffee
 # No
 doSomething = ({foo, bar, baz}, qux) ->
   # do something with foo, bar, baz
@@ -549,7 +549,7 @@ In Koding we wrote most of the codes with classes.
 
 - Group helper/private methods in a private object called `helper`
 
-```coffeescript
+```coffee
 # NO
 class Foo extends Bar
 
@@ -579,7 +579,7 @@ class Foo Extends Bar
 
 - Use static methods or even private methods for methods that don't depend on `this` context. Do not use instance methods for those kind of methods.
 
-```coffeescript
+```coffee
 # No
 class Foo extends Bar
 
@@ -617,7 +617,7 @@ class Foo extends Bar
   2 - Define `instance` methods
   3 - Define `helper` methods
 
-```coffeescript
+```coffee
 class Foo extends Bar
 
   # Static Methods
@@ -643,7 +643,7 @@ class Foo extends Bar
 
 - Use shorthand syntax for accesing prototype properties. Use direct access when dealing the `prototype` object itself.
 
-```coffeescript
+```coffee
 # No
 slice      = Array.prototype.slice
 arrayProto = Array::
@@ -655,7 +655,7 @@ arrayProto = Array.prototype
 
 - Use `@property` instead of `this.property`. Avoid using standalone `@`.
 
-```coffeescript
+```coffee
 class Foo extends Bar
 
   constructor: (options = {}, data) ->
@@ -684,7 +684,7 @@ class Foo extends Bar
 
 - Be careful with __fat arrows__. As they produce extra code, and tries to bind `this` into that method, if you know that you will not use context in that method, DO NOT USE fat arrows.
 
-```coffeescript
+```coffee
 class Foo extends Bar
 
   doSomething: (obj) ->
