@@ -18,7 +18,7 @@ arr = [
   'bar'
 ]
 
-obj = 
+obj =
   foo: bar,
   baz: qux
 
@@ -28,9 +28,9 @@ arr = [
   'bar'
 ]
 
-obj = 
-  foo: bar
-  baz: qux
+obj =
+  foo : bar
+  baz : qux
 ```
 
 
@@ -41,9 +41,8 @@ obj =
 - Use 1 blank line between class decleration and the first method (generally constructor)
 
 ```coffee
-
 # No
-class Foo extends Bar 
+class Foo extends Bar
   constructor: (options = {}, data) -> # no space at all
 
     @options = options
@@ -115,9 +114,21 @@ doSomething = ->
 
 ### Formatting
 
+- Use at least one space before an assignment operator.
+- Use **only** one space after an assignment operator.
 - Use reasonable aligning for expression symbols _(e.g `=`, `:`)_. Do not try to align everything, as it's making it hard to move the lines. Try to use plugins for this: Tabularize for Vim, Alignment for Sublime Text
 
 ```coffee
+# No
+x= 1
+y =2
+z=3
+
+# Yes
+x = 1
+y = 2
+z = 3
+
 # No
 x            = 1
 y            = 2
@@ -130,16 +141,22 @@ y = 2
 longVariable = 'string'
 
 # No
-obj = 
+obj =
   var: 1
   short: 2
   longVariable: 3
 
+obj            =
+  var          : 1
+  short        : 2
+  longVariable : 3
+
+
 # Yes
-  obj = 
-    var         : 1
-    short       : 2
-    longVariabl : 3
+obj =
+  var          : 1
+  short        : 2
+  longVariable : 3
 ```
 
 - Follow idiomatic CoffeeScript practises for expressions, assignments, booleans etc.
@@ -160,8 +177,8 @@ bool       = condition and otherCondition
 isWrong    = not right
 expression = first is second
 expression = first isnt second
-bool       = yes # `on` depending on the situation (e.g `switch = on`)
-bool       = no  # 'off' ^^
+bool       = yes # `on` depending on the context (e.g `isLoggedIn = yes` vs `state = on`)
+bool       = no  # `off` ^^
 ```
 
 
@@ -184,21 +201,21 @@ Require statements should follow the following order:
 3 - Application specific imports
 
 
-### Parantheses
+### Parantheses, Curlies, Brackets
 
 - Omit curly brackets for multiline object definition
 
 ```coffee
 # No
 obj = {
-  foo: bar
-  baz: qux
+  foo : bar
+  baz : qux
 }
 
 # Yes
 obj =
-  foo: bar
-  baz: qux
+  foo : bar
+  baz : qux
 ```
 
 - Use curly brackets for single line object definition
@@ -231,13 +248,28 @@ foo('bar').baz()
 foo(bar('baz')).qux()
 (foo (bar 'baz'))
 ((foo 'bar').baz 'qux').etc()
+(foo 'bar').baz()
+(foo 'bar').baz('qux').etc()
 
 # Yes
-(foo 'bar').baz()
 foo().bar('baz').qux()
 foo().bar 'baz'
-(foo 'bar').baz('qux').etc()
+foo('bar').baz('qux').etc()
 ```
+
+- Multiline chains
+
+```coffee
+# No
+foo('bar').baz()
+  .qux()
+
+# Yes
+foo 'bar'
+  .baz()
+  .qux()
+```
+
 
 # Strings
 
@@ -271,13 +303,13 @@ str = 'This is a string.'
 ```coffee
 
 doSomething = (obj) ->
-  
+
   doSomeAsyncStuff obj, (err, result) ->
 
     # we are not sure about the type of err
     # but we know that if it's not `undefined`
     # or `null` we need to stop execution.
-    return console.warn 'error'  if err?
+    return console.error err  if err?
 
     # we know that it will be some kind of
     # object, either plain object or an array.
@@ -315,7 +347,7 @@ else
   # ...
 ```
 
-- Use 2 spaces before `if/unless` when using one line conditionals
+- Use 2 spaces before post conditionals
 
 ```coffee
 # No
@@ -333,7 +365,7 @@ doSomething = ->
   return  unless condition # 2 spaces
 ```
 
-- Use `switch` over `if/else if` for 1 line multi conditions. Align `then` statements if oneline.
+- Use `switch` over `if/else if` for 1 line multi conditions. Align `then` statements if single line.
 
 ```coffee
 # No
@@ -384,6 +416,16 @@ doSomething = (foo, bar, rest...)->
 doSomething = (foo, bar, rest...) ->
 ```
 
+- Use 1 space after comma between arguments.
+
+```coffee
+# No
+doSomething = (foo,bar,rest...)->
+
+# Yes
+doSomething = (foo, bar, rest...) ->
+```
+
 - Omit curly brackets if argument is a multiline object
 
 ```coffee
@@ -401,7 +443,7 @@ new KDView
   partial  : 'View text'
 ```
 
-- Use early returns over big `if/else` blocks.
+- Use early returns over big `if/else` blocks, to avoid nesting.
 
 ```coffee
 # No
@@ -413,7 +455,7 @@ doSomething = (state) ->
     return yes
 
 # Yes
-doSomething = (state) -> 
+doSomething = (state) ->
 
   return yes  unless state
 
@@ -425,7 +467,7 @@ doSomething = (state) ->
 ```coffee
 # No
 doSomething = ->
-  
+
   result = doThing()
   doOtherThing()
 
@@ -437,7 +479,7 @@ class Foo
 
 # Yes
 doSomething = ->
-  
+
   result = doThing()
   doOtherThing()
 
@@ -514,7 +556,7 @@ class Foo extends Bar
   doSomething        = (foo, bar) -> "#{foo} and #{bar}"
   duplicateSomething = (something) -> "#{something}#{something}"
 
-  constructor: -> 
+  constructor: ->
     something   = doSomething 'foo', 'bar'
     @duplicated = duplicateSomething something
 
@@ -560,7 +602,7 @@ class Foo extends Bar
   constructor: (options = {}, data) ->
 
     { foo, bar } = options
-    
+
     eligible = Foo.isEligible foo, bar # better
     eligible = helper.isEligible foo, bar # even better, it's just a function
 
@@ -593,7 +635,7 @@ class Foo extends Bar
 
 
   # Helper methods
-  helper = 
+  helper =
     transformOptions: (options) -> someTransformation options
 
 
@@ -647,7 +689,7 @@ class Foo extends Bar
 
   doSomething: (obj) ->
 
-    # No 
+    # No
     # There is no access to the instance
     # or this, so there is no point using fat arrow here.
     doAsyncStuff obj, (err, result) => KD.utils.stringify result
@@ -658,4 +700,3 @@ class Foo extends Bar
 
 
 ```
-
