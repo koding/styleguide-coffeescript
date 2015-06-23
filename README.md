@@ -203,7 +203,7 @@ Require statements should follow the following order:
 
 ### Parantheses, Curlies, Brackets
 
-- Omit curly brackets for multiline object definition
+- Omit curly brackets for object definitions
 
 ```coffee
 # No
@@ -212,20 +212,16 @@ obj = {
   baz : qux
 }
 
+# No
+obj = { foo: bar, baz: qux }
+
+# Yes
+obj = foo: bar, baz: qux
+
 # Yes
 obj =
   foo : bar
   baz : qux
-```
-
-- Use curly brackets for single line object definition
-
-```coffee
-# No
-obj = foo: bar, baz: qux
-
-# Yes
-obj = { foo: bar, baz: qux }
 ```
 
 - Omit paranthesis from the last function call of chain
