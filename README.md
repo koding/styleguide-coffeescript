@@ -319,6 +319,18 @@ doSomething = (obj) ->
 
 ```
 
+- Use the existential operator on functions when they need to be called, but only if they exist. This syntax automatically checks the type of the function, avoiding those pesky `foo is not a function` errors.
+
+```coffee
+# No
+callback foo  if callback
+callback()    if callback
+
+# Yes
+callback? foo
+callback?()
+```
+
 - Never use single line `if/then/else` statements. Instead use 3 line version of it.
 
 ```coffee
