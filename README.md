@@ -503,6 +503,16 @@ class Foo
 
 ```
 
+- Do not use `@` with arguments to cut across if the method is a setter.
+
+```coffee
+# No
+foo: (@bar) ->
+
+# Yes
+foo: (bar) -> @bar = bar
+```
+
 - Write method definition and method body on the same line if method body contains only one line. Only exception is when it is against `80 characters per line rule`.
 
 ```coffee
