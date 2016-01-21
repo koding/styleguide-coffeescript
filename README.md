@@ -9,7 +9,7 @@ Koding CoffeeScript Style Guideline
 
 ### Optional Commas
 
-- Avoid use of commas on multiline object and array definitions.
+#### Avoid use of commas on multiline object and array definitions.
 
 ```coffee
 # No
@@ -36,9 +36,9 @@ obj =
 
 ### Blank Lines
 
-- Leave 2 blank lines at the end of the file.
+#### Leave 2 blank lines at the end of the file.
 
-- Use 1 blank line between class decleration and the first method (generally constructor)
+#### Use 1 blank line between class decleration and the first method (generally constructor)
 
 ```coffee
 # No
@@ -57,7 +57,7 @@ class Foo extends Bar
     @data    = data
 ```
 
-- Use exactly 2 blank lines between method/function definitions
+#### Use exactly 2 blank lines between method/function definitions
 
 ```coffee
 # No
@@ -96,7 +96,7 @@ doSomething = ->
 
 ```
 
-- Use 1 blank line after definition of the method/function
+#### Use 1 blank line after definition of the method/function
 
 ```coffee
 # No
@@ -159,7 +159,7 @@ obj =
   longVariable : 3
 ```
 
-- Follow idiomatic CoffeeScript practises for expressions, assignments, booleans etc.
+#### Follow idiomatic CoffeeScript practises for expressions, assignments, booleans etc.
 
 ```coffee
 # No
@@ -187,7 +187,7 @@ bool       = no  # `off` ^^
 
 We are using `CommonJS` module imports with `Browserify`.
 
-- Each require statement needs to be on its own line
+#### Each require statement needs to be on its own line
 
 ```coffee
 _      = require 'underscore'
@@ -203,7 +203,7 @@ Require statements should follow the following order:
 
 ### Parantheses, Curlies, Brackets
 
-- Omit curly brackets for multiline object definition
+#### Omit curly brackets for multiline object definition
 
 ```coffee
 # No
@@ -218,7 +218,7 @@ obj =
   baz : qux
 ```
 
-- Use curly brackets for single line object definition
+#### Use curly brackets for single line object definition
 
 ```coffee
 # No
@@ -228,7 +228,7 @@ obj = foo: bar, baz: qux
 obj = { foo: bar, baz: qux }
 ```
 
-- Omit paranthesis from the last function call of chain
+#### Omit paranthesis from the last function call of chain
 
 ```coffee
 # No
@@ -240,7 +240,7 @@ foo 'bar'
 foo().bar 'baz', 'qux'
 ```
 
-- Group only the first method in chains with `Lisp-y` way.
+#### Group only the first method in chains with `Lisp-y` way.
 
 ```coffee
 # No
@@ -257,7 +257,7 @@ foo().bar 'baz'
 foo('bar').baz('qux').etc()
 ```
 
-- Multiline chains
+#### Multiline chains
 
 ```coffee
 # No
@@ -273,7 +273,7 @@ foo 'bar'
 
 # Strings
 
-- Use string interpolations instead of string concatenation.
+#### Use string interpolations instead of string concatenation.
 
 ```coffee
 # No
@@ -285,7 +285,7 @@ str = "This string has #{variables} inside."
 str = "#{str} And this is cool."
 ```
 
-- Use single quotes if there is no string interpolation.
+#### Use single quotes if there is no string interpolation.
 
 ```coffee
 # No
@@ -298,7 +298,7 @@ str = 'This is a string.'
 
 # Conditionals
 
-- Use existential operator `arg?` in places where you really want to check if a value exists on that variable, and you are not sure about the type. Otherwise do not use existential operator, do the check against variable itself.
+#### Use existential operator `arg?` in places where you really want to check if a value exists on that variable, and you are not sure about the type. Otherwise do not use existential operator, do the check against variable itself.
 
 ```coffee
 
@@ -319,7 +319,7 @@ doSomething = (obj) ->
 
 ```
 
-- Use the existential operator on functions when they need to be called, but only if they exist. This syntax automatically checks the type of the function, avoiding those pesky `foo is not a function` errors.
+#### Use the existential operator on functions when they need to be called, but only if they exist. This syntax automatically checks the type of the function, avoiding those pesky `foo is not a function` errors.
 
 ```coffee
 # No
@@ -331,7 +331,7 @@ callback? foo
 callback?()
 ```
 
-- Never use single line `if/then/else` statements. Instead use 3 line version of it.
+#### Never use single line `if/then/else` statements. Instead use 3 line version of it.
 
 ```coffee
 # No
@@ -343,7 +343,7 @@ then foo()
 else bar()
 ```
 
-- Always use `if/else` over `unless/else`. Never use `unless/else`
+#### Always use `if/else` over `unless/else`. Never use `unless/else`
 
 ```coffee
 # No
@@ -359,7 +359,7 @@ else
   # ...
 ```
 
-- Use 2 spaces before post conditionals
+#### Use 2 spaces before post conditionals
 
 ```coffee
 # No
@@ -377,7 +377,7 @@ doSomething = ->
   return  unless condition # 2 spaces
 ```
 
-- Use `switch` over `if/else if` for 1 line multi conditions. Align `then` statements if single line.
+#### Use `switch` over `if/else if` for 1 line multi conditions. Align `then` statements if single line.
 
 ```coffee
 # No
@@ -408,7 +408,7 @@ switch condition
 
 ### Functions
 
-- Don't use parens functions that has empty arguments list
+#### Don't use parens functions that has empty arguments list
 
 ```coffee
 # No
@@ -418,7 +418,7 @@ doSomething = () ->
 doSomething = ->
 ```
 
-- Use 1 space between closing parenthesis of arguments list and function arrow.
+#### Use 1 space between closing parenthesis of arguments list and function arrow.
 
 ```coffee
 # No
@@ -428,7 +428,7 @@ doSomething = (foo, bar, rest...)->
 doSomething = (foo, bar, rest...) ->
 ```
 
-- Use 1 space after comma between arguments.
+#### Use 1 space after comma between arguments.
 
 ```coffee
 # No
@@ -438,7 +438,7 @@ doSomething = (foo,bar,rest...)->
 doSomething = (foo, bar, rest...) ->
 ```
 
-- Omit curly brackets if argument is a multiline object
+#### Omit curly brackets if argument is a multiline object
 
 ```coffee
 KDView = require 'kdf/view'
@@ -455,7 +455,7 @@ new KDView
   partial  : 'View text'
 ```
 
-- Use early returns over big `if/else` blocks, to avoid nesting.
+#### Use early returns over big `if/else` blocks, to avoid nesting.
 
 ```coffee
 # No
@@ -474,7 +474,7 @@ doSomething = (state) ->
   # do something
 ```
 
-- Omit `return` keyword __only__ for 1 line functions. Use `return` every where else.
+#### Omit `return` keyword __only__ for 1 line functions. Use `return` every where else.
 
 ```coffee
 # No
@@ -503,7 +503,7 @@ class Foo
 
 ```
 
-- Do not use `@` with arguments to cut across if the method is a setter.
+#### Do not use `@` with arguments to cut across if the method is a setter.
 
 ```coffee
 # No
@@ -513,7 +513,7 @@ foo: (@bar) ->
 foo: (bar) -> @bar = bar
 ```
 
-- Write method definition and method body on the same line if method body contains only one line. Only exception is when it is against `80 characters per line rule`.
+#### Write method definition and method body on the same line if method body contains only one line. Only exception is when it is against `80 characters per line rule`.
 
 ```coffee
 # No
@@ -531,7 +531,7 @@ someKindOfMethodWithLongName = (foo, bar) ->
   return [foo, bar].map (arg) -> anotherMethod arg
 ```
 
-- Do not use `arguments`, use splat (`args...`) operator instead.
+#### Do not use `arguments`, use splat (`args...`) operator instead.
 
 ```coffee
 # No
@@ -550,7 +550,7 @@ class Foo
 
 ```
 
-- Do not destruct properties on arguments list. Instead destruct necessary arguments inside function body.
+#### Do not destruct properties on arguments list. Instead destruct necessary arguments inside function body.
 
 ```coffee
 # No
@@ -569,7 +569,7 @@ doSomething = (obj, qux) ->
 
 In Koding we wrote most of the codes with classes.
 
-- Group helper/private methods in a private object called `helper`
+#### Group helper/private methods in a private object called `helper`
 
 ```coffee
 # NO
@@ -599,7 +599,7 @@ class Foo Extends Bar
 
 ```
 
-- Use static methods or even private methods for methods that don't depend on `this` context. Do not use instance methods for those kind of methods.
+#### Use static methods or even private methods for methods that don't depend on `this` context. Do not use instance methods for those kind of methods.
 
 ```coffee
 # No
@@ -633,7 +633,7 @@ class Foo extends Bar
 
 ```
 
-- Define different types of methods in the following order:
+#### Define different types of methods in the following order:
 
   1 - Define `static` methods
   2 - Define `instance` methods
@@ -663,7 +663,7 @@ class Foo extends Bar
 
 ```
 
-- Use shorthand syntax for accesing prototype properties. Use direct access when dealing the `prototype` object itself.
+#### Use shorthand syntax for accesing prototype properties. Use direct access when dealing the `prototype` object itself.
 
 ```coffee
 # No
@@ -675,7 +675,7 @@ slice      = Array::slice
 arrayProto = Array.prototype
 ```
 
-- Use `@property` instead of `this.property`. Avoid using standalone `@`.
+#### Use `@property` instead of `this.property`. Avoid using standalone `@`.
 
 ```coffee
 class Foo extends Bar
@@ -704,7 +704,7 @@ class Foo extends Bar
 
 ```
 
-- Be careful with __fat arrows__. As they produce extra code, and tries to bind `this` into that method, if you know that you will not use context in that method, DO NOT USE fat arrows.
+#### Be careful with __fat arrows__. As they produce extra code, and tries to bind `this` into that method, if you know that you will not use context in that method, DO NOT USE fat arrows.
 
 ```coffee
 class Foo extends Bar
