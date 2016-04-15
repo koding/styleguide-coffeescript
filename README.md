@@ -114,9 +114,8 @@ doSomething = ->
 
 ### Formatting
 
-- Use at least one space before an assignment operator.
-- Use **only** one space after an assignment operator.
-- Use reasonable aligning for expression symbols _(e.g `=`, `:`)_. Do not try to align everything, as it's making it hard to move the lines. Try to use plugins for this: Tabularize for Vim, Alignment for Sublime Text
+- Use **only one** space before and after an assignment operator.
+- Use **no** space before and **only one** space after object assignment operator.
 
 ```coffee
 # No
@@ -137,26 +136,19 @@ longVariable = 'string'
 # Yes
 x = 1
 y = 2
-
 longVariable = 'string'
 
 # No
-obj =
-  var: 1
-  short: 2
-  longVariable: 3
-
 obj            =
   var          : 1
   short        : 2
   longVariable : 3
 
-
 # Yes
 obj =
-  var          : 1
-  short        : 2
-  longVariable : 3
+  var: 1
+  short: 2
+  longVariable: 3
 ```
 
 #### Follow idiomatic CoffeeScript practises for expressions, assignments, booleans etc.
